@@ -1,13 +1,19 @@
 package org.jetbrains.plugins.template.listeners
 
-import com.intellij.openapi.components.service
-import com.intellij.openapi.project.Project
-import com.intellij.openapi.project.ProjectManagerListener
-import org.jetbrains.plugins.template.services.MyProjectService
+import com.intellij.analysis.problemsView.Problem
+import com.intellij.analysis.problemsView.ProblemsListener
 
-internal class MyProjectManagerListener : ProjectManagerListener {
-
-    override fun projectOpened(project: Project) {
-        project.service<MyProjectService>()
+internal class MyProjectManagerListener: ProblemsListener {
+    override fun problemAppeared(problem: Problem) {
+        println(problem.description)
     }
+
+    override fun problemDisappeared(problem: Problem) {
+        println(problem.description)
+    }
+
+    override fun problemUpdated(problem: Problem) {
+        println(problem.description)
+    }
+
 }

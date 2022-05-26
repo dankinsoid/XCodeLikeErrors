@@ -11,8 +11,10 @@
         <projectService serviceImplementation="org.jetbrains.plugins.template.services.MyProjectService"/>
     </extensions>
 
-    <applicationListeners>
+    <projectListeners>
         <listener class="org.jetbrains.plugins.template.listeners.MyProjectManagerListener"
-                  topic="com.intellij.openapi.project.ProjectManagerListener"/>
-    </applicationListeners>
+                  topic="com.intellij.analysis.problemsView.ProblemsListener"/>
+        <listener class="org.jetbrains.plugins.template.listeners.MyBuilderListener"
+                  topic="org.apache.tools.ant.BuildListener"/>
+    </projectListeners>
 </idea-plugin>
